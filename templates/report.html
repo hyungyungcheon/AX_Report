@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>{{TITLE}} — AX 인텔리전스 리포트</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#F6F1E7;
+  --panel:#FFFCF5;
+  --panel-alt:#F1EADA;
+  --border:#E0D6C0;
+  --gold:#A87C12;
+  --teal:#2B7A82;
+  --green:#3F7A52;
+  --red:#A8392F;
+  --blue:#3F5499;
+  --text:#241F17;
+  --text-soft:#5C5446;
+  --text-mute:#8C8270;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{background:var(--bg); color:var(--text); font-family:'Inter','Noto Sans KR',sans-serif;}
+body{padding:40px 20px; line-height:1.6;}
+
+.wrap{max-width:920px; margin:0 auto;}
+
+.back-link{display:inline-block; font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--teal); text-decoration:none; margin-bottom:18px; padding:6px 12px; border:1px solid var(--teal); border-radius:6px; background:#fff;}
+.back-link:hover{background:var(--teal); color:#fff;}
+
+header{margin-bottom:28px; border-bottom:2px solid var(--text); padding-bottom:20px;}
+.eyebrow{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:8px;}
+h1{font-family:'Newsreader',serif; font-size:40px; font-weight:600; letter-spacing:-.01em;}
+.meta{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--text-soft); margin-top:10px;}
+
+.scorecards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:28px 0;}
+.score{background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:16px; box-shadow:0 2px 6px rgba(36,31,23,.06);}
+.score .label{font-family:'Inter','Noto Sans KR',sans-serif; font-size:14px; font-weight:700; color:var(--text-soft); letter-spacing:.03em;}
+.score .val{font-family:'Newsreader',serif; font-size:32px; font-weight:600; color:var(--gold); margin-top:4px;}
+.score .desc{font-size:13.5px; color:var(--text-soft); margin-top:6px;}
+
+.key-msg{background:var(--panel-alt); border-left:4px solid var(--gold); padding:16px 20px; margin:24px 0; font-family:'Newsreader',serif; font-size:18.5px; font-style:italic;}
+
+.tabs{display:flex; gap:8px; border-bottom:2px solid var(--border); margin:34px 0 0;}
+.tab-btn{font-family:'Inter','Noto Sans KR',sans-serif; font-size:17px; font-weight:600; padding:12px 24px; background:none; border:none; cursor:pointer; color:var(--text-mute); border-bottom:3px solid transparent; margin-bottom:-2px; border-radius:6px 6px 0 0; transition:color .15s, background .15s;}
+.tab-btn:hover{color:var(--text); background:var(--panel-alt);}
+.tab-btn.active{color:var(--gold); border-bottom-color:var(--gold); font-weight:700; background:var(--panel);}
+
+.tab-content{display:none; padding-top:24px;}
+.tab-content.active{display:block;}
+
+.article{background:#FFFFFF; border:1px solid var(--border); border-radius:8px; padding:18px 20px; margin-bottom:14px;}
+.article h3{font-family:'Newsreader',serif; font-size:20px; font-weight:600; margin-bottom:6px;}
+.article .meta-line{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13px; font-weight:500; color:var(--text-mute); margin-bottom:10px;}
+.article p{font-size:15.5px; color:var(--text-soft);}
+.article a{color:var(--teal); text-decoration:none; font-size:13.5px; font-weight:600; font-family:'Inter','Noto Sans KR',sans-serif;}
+.article a:hover{text-decoration:underline;}
+
+.insight-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.insight-card{border-radius:8px; padding:18px 20px; border:1px solid var(--border); box-shadow:0 2px 6px rgba(36,31,23,.05);}
+.insight-card h4{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15.5px; font-weight:700; letter-spacing:.02em; margin-bottom:10px;}
+.insight-card ul{padding-left:18px; font-size:15px; color:var(--text-soft);}
+.insight-card li{margin-bottom:6px;}
+.opp{background:#EEF5EC; border-color:#BFD9BB;} .opp h4{color:var(--green);}
+.risk{background:#F7EBE9; border-color:#E3BEB8;} .risk h4{color:var(--red);}
+.strat{background:#EAF0F8; border-color:#BFCFE8;} .strat h4{color:var(--blue);}
+.trend{background:#FAF2DE; border-color:#E6D29C;} .trend h4{color:var(--gold);}
+
+footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--text-mute); text-align:center;}
+
+@media (max-width:680px){
+  .scorecards{grid-template-columns:1fr;}
+  .insight-grid{grid-template-columns:1fr;}
+  h1{font-size:28px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back-link" href="../index.html">← 목록으로</a>
+
+<header>
+  <div class="eyebrow">AX Intelligence Report · Keyword: {{KEYWORD}}</div>
+  <h1>{{TITLE}}</h1>
+  <div class="meta">{{META}}</div>
+</header>
+
+<div class="scorecards">
+{{SCORECARDS}}
+</div>
+
+<div class="key-msg">{{KEY_MESSAGE}}</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('articles', event)">기사 요약</button>
+  <button class="tab-btn" onclick="showTab('insights', event)">AX 인사이트</button>
+</div>
+
+<div id="articles" class="tab-content active">
+{{ARTICLES}}
+</div>
+
+<div id="insights" class="tab-content">
+  <div class="insight-grid">
+
+    <div class="insight-card opp">
+      <h4>🟢 기회 (Opportunity)</h4>
+      <ul>
+{{INSIGHT_OPP}}
+      </ul>
+    </div>
+
+    <div class="insight-card risk">
+      <h4>🔴 리스크 (Risk)</h4>
+      <ul>
+{{INSIGHT_RISK}}
+      </ul>
+    </div>
+
+    <div class="insight-card strat">
+      <h4>🔵 전략 (Strategy)</h4>
+      <ul>
+{{INSIGHT_STRAT}}
+      </ul>
+    </div>
+
+    <div class="insight-card trend">
+      <h4>🟡 트렌드 (Trend)</h4>
+      <ul>
+{{INSIGHT_TREND}}
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<footer>{{FOOTER}}</footer>
+
+<script>
+function showTab(id, ev){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  ev.target.classList.add('active');
+}
+</script>
+</body>
+</html>

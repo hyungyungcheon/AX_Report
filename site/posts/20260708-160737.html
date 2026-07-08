@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>엔터프라이즈 AI 에이전트 2026 동향 브리핑 — AX 인텔리전스 리포트</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#F6F1E7;
+  --panel:#FFFCF5;
+  --panel-alt:#F1EADA;
+  --border:#E0D6C0;
+  --gold:#A87C12;
+  --teal:#2B7A82;
+  --green:#3F7A52;
+  --red:#A8392F;
+  --blue:#3F5499;
+  --text:#241F17;
+  --text-soft:#5C5446;
+  --text-mute:#8C8270;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{background:var(--bg); color:var(--text); font-family:'Inter','Noto Sans KR',sans-serif;}
+body{padding:40px 20px; line-height:1.6;}
+
+.wrap{max-width:920px; margin:0 auto;}
+
+.back-link{display:inline-block; font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--teal); text-decoration:none; margin-bottom:18px; padding:6px 12px; border:1px solid var(--teal); border-radius:6px; background:#fff;}
+.back-link:hover{background:var(--teal); color:#fff;}
+
+header{margin-bottom:28px; border-bottom:2px solid var(--text); padding-bottom:20px;}
+.eyebrow{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:8px;}
+h1{font-family:'Newsreader',serif; font-size:40px; font-weight:600; letter-spacing:-.01em;}
+.meta{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--text-soft); margin-top:10px;}
+
+.scorecards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:28px 0;}
+.score{background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:16px; box-shadow:0 2px 6px rgba(36,31,23,.06);}
+.score .label{font-family:'Inter','Noto Sans KR',sans-serif; font-size:14px; font-weight:700; color:var(--text-soft); letter-spacing:.03em;}
+.score .val{font-family:'Newsreader',serif; font-size:32px; font-weight:600; color:var(--gold); margin-top:4px;}
+.score .desc{font-size:13.5px; color:var(--text-soft); margin-top:6px;}
+
+.key-msg{background:var(--panel-alt); border-left:4px solid var(--gold); padding:16px 20px; margin:24px 0; font-family:'Newsreader',serif; font-size:18.5px; font-style:italic;}
+
+.tabs{display:flex; gap:8px; border-bottom:2px solid var(--border); margin:34px 0 0;}
+.tab-btn{font-family:'Inter','Noto Sans KR',sans-serif; font-size:17px; font-weight:600; padding:12px 24px; background:none; border:none; cursor:pointer; color:var(--text-mute); border-bottom:3px solid transparent; margin-bottom:-2px; border-radius:6px 6px 0 0; transition:color .15s, background .15s;}
+.tab-btn:hover{color:var(--text); background:var(--panel-alt);}
+.tab-btn.active{color:var(--gold); border-bottom-color:var(--gold); font-weight:700; background:var(--panel);}
+
+.tab-content{display:none; padding-top:24px;}
+.tab-content.active{display:block;}
+
+.article{background:#FFFFFF; border:1px solid var(--border); border-radius:8px; padding:18px 20px; margin-bottom:14px;}
+.article h3{font-family:'Newsreader',serif; font-size:20px; font-weight:600; margin-bottom:6px;}
+.article .meta-line{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13px; font-weight:500; color:var(--text-mute); margin-bottom:10px;}
+.article p{font-size:15.5px; color:var(--text-soft);}
+.article a{color:var(--teal); text-decoration:none; font-size:13.5px; font-weight:600; font-family:'Inter','Noto Sans KR',sans-serif;}
+.article a:hover{text-decoration:underline;}
+
+.insight-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.insight-card{border-radius:8px; padding:18px 20px; border:1px solid var(--border); box-shadow:0 2px 6px rgba(36,31,23,.05);}
+.insight-card h4{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15.5px; font-weight:700; letter-spacing:.02em; margin-bottom:10px;}
+.insight-card ul{padding-left:18px; font-size:15px; color:var(--text-soft);}
+.insight-card li{margin-bottom:6px;}
+.opp{background:#EEF5EC; border-color:#BFD9BB;} .opp h4{color:var(--green);}
+.risk{background:#F7EBE9; border-color:#E3BEB8;} .risk h4{color:var(--red);}
+.strat{background:#EAF0F8; border-color:#BFCFE8;} .strat h4{color:var(--blue);}
+.trend{background:#FAF2DE; border-color:#E6D29C;} .trend h4{color:var(--gold);}
+
+footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--text-mute); text-align:center;}
+
+@media (max-width:680px){
+  .scorecards{grid-template-columns:1fr;}
+  .insight-grid{grid-template-columns:1fr;}
+  h1{font-size:28px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back-link" href="../index.html">← 목록으로</a>
+
+<header>
+  <div class="eyebrow">AX Intelligence Report · Keyword: 엔터프라이즈 AI 에이전트</div>
+  <h1>엔터프라이즈 AI 에이전트 2026 동향 브리핑</h1>
+  <div class="meta">수집 기준일: 2026-07-08 16:07 · 수집 기사: 10건 · 분석 관점: 엔터프라이즈 AX 전환</div>
+</header>
+
+<div class="scorecards">
+  <div class="score"><div class="label">전환 속도</div><div class="val">8.5 / 10</div><div class="desc">기업 앱 내 AI 에이전트 탑재율이 2025년 5% 미만에서 2026년 40% 목표로 단 1년 만에 8배 급증하며 역대 가장 빠른 기술 전환 속도를 기록 중이다.</div></div>
+  <div class="score"><div class="label">산업 파급력</div><div class="val">8.8 / 10</div><div class="desc">금융·통신(48%)·제조·소매·헬스케어 등 전 산업에 걸쳐 핵심 비즈니스 프로세스를 자율화하는 수준의 구조적 재편이 진행 중이다.</div></div>
+  <div class="score"><div class="label">도입 성숙도</div><div class="val">6.2 / 10</div><div class="desc">72%가 프로덕션 단계에 도달했으나 60%는 공식 거버넌스 체계 없이 운영 중이며, 실질적 스케일링까지 완료한 기업은 23%에 불과해 성숙도 편차가 크다.</div></div>
+</div>
+
+<div class="key-msg">&quot;에이전틱 AI는 이미 엔터프라이즈 주류가 됐지만, 거버넌스 없는 확산이 최대 위협이다&quot; — 기업의 96%가 AI 에이전트를 운영하는 동안 중앙화된 거버넌스 체계를 갖춘 기업은 12%에 불과하여, AI 전환의 승패는 이제 &#x27;도입 속도&#x27;가 아닌 &#x27;통제 역량&#x27;이 결정한다.</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('articles', event)">기사 요약</button>
+  <button class="tab-btn" onclick="showTab('insights', event)">AX 인사이트</button>
+</div>
+
+<div id="articles" class="tab-content active">
+  <div class="article">
+    <h3>#01 에이전틱 AI, 기업 주류 진입…그러나 94%가 &#x27;AI 스프롤&#x27; 보안 위험 경고</h3>
+    <div class="meta-line">2026.04.07 · OutSystems / BusinessWire</div>
+    <p>전 세계 1,900명의 IT 리더를 대상으로 한 OutSystems 설문에서 96%의 기업이 이미 AI 에이전트를 운영 중이며, 49%는 자사의 에이전틱 AI 역량을 &#x27;고급&#x27; 또는 &#x27;전문가&#x27; 수준으로 평가했다. 반면 94%의 조직은 관리되지 않는 AI 에이전트 확산(AI 스프롤)이 복잡성·기술 부채·보안 위험을 키운다고 우려했다. 중앙화된 플랫폼으로 스프롤을 관리하는 기업은 단 12%에 그쳐 도입 속도와 거버넌스 성숙도 간 격차가 심각하다는 점이 이번 보고서의 핵심 경고다.</p>
+    <a href="https://www.businesswire.com/news/home/20260407749542/en/Agentic-AI-Goes-Mainstream-in-the-Enterprise-but-94-Raise-Concern-About-Sprawl-OutSystems-Research-Finds" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#02 엔터프라이즈 AI 에이전트 트렌드: 주요 사용 사례·거버넌스·평가 심층 분석</h3>
+    <div class="meta-line">2026.01 · Databricks</div>
+    <p>Databricks 보고서에 따르면 멀티에이전트 시스템이 불과 4개월 만에 327% 성장했으며, 가장 활발히 활용되는 패턴은 전체의 37%를 차지한 슈퍼바이저 에이전트로 나타났다. AI 에이전트는 이미 기업 데이터베이스의 80% 이상을 자율 생성하는 수준까지 진화했고, 평가 도구를 도입한 기업은 미도입 기업보다 AI 시스템을 프로덕션으로 전환하는 비율이 6배 높았다. 상위 15개 사용 사례 중 40%가 고객 경험·참여에 집중되어 에이전트의 전방 확장 전략이 뚜렷이 나타난다.</p>
+    <a href="https://www.databricks.com/blog/enterprise-ai-agent-trends-top-use-cases-governance-evaluations-and-more" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#03 2026 AI 에이전트 트렌드 보고서 — 비즈니스를 재편하는 5대 에이전트 전략</h3>
+    <div class="meta-line">2026 · Google Cloud</div>
+    <p>Google Cloud가 3,466명의 글로벌 임원을 조사한 2026 AI 에이전트 트렌드 보고서는 전체 기업 앱의 80%가 에이전트를 내재화하고 연간 46% 이상의 CAGR이 전망된다고 밝혔다. 생성형 AI를 운영 중인 기업의 절반 이상이 이미 에이전트를 프로덕션에 배포했으며, 직원·워크플로우·고객·보안·스케일의 5대 에이전트 트렌드가 제시됐다. 보고서는 인재 업스킬링이 AI 에이전트 투자 대비 최대 비즈니스 가치를 이끄는 궁극적 동인이라고 강조했다.</p>
+    <a href="https://cloud.google.com/resources/content/ai-agent-trends-2026" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#04 2026 엔터프라이즈 AI 도입 현황: 막대한 투자에도 79%가 어려움에 직면한 이유</h3>
+    <div class="meta-line">2026 · Writer</div>
+    <p>Writer의 2026 엔터프라이즈 AI 도입 보고서는 AI 투자가 급증하는 가운데 79%의 기업이 도입 과정에서 심각한 어려움을 경험한다고 밝혔으며, 이는 2025년 대비 두 자릿수 증가다. C레벨 경영진의 54%는 AI 도입이 조직 내부를 분열시키고 있다고 고백했으며, 이는 기술 도입 속도와 조직 변화 관리 역량 간 괴리를 단적으로 보여준다. 핵심 어려움으로는 데이터 품질 문제, 거버넌스 체계 부재, 비즈니스 가치 입증의 어려움이 꼽혔다.</p>
+    <a href="https://writer.com/blog/enterprise-ai-adoption-2026/" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#05 2026 에이전틱 AI 기업 도입 현황: 72% 프로덕션 입증, 그러나 60% 거버넌스 공백</h3>
+    <div class="meta-line">2026 · Agentic AI Institute</div>
+    <p>Agentic AI Institute의 2026 보고서는 전체 기업의 72%가 에이전틱 AI를 프로덕션에서 운영 중이지만, 이 중 60%는 공식 거버넌스 체계를 갖추지 못한 상태임을 확인했다. 거버넌스를 구축한 기업은 AI 프로젝트를 프로덕션으로 전환하는 비율이 미구축 기업보다 12배 높아, 거버넌스 투자가 AI 전환의 생산성을 결정적으로 좌우한다는 점이 데이터로 입증됐다. 기술·금융서비스 분야가 78~88%로 도입을 주도하는 가운데, 제조업이 18개월 사이 70%→77%로 가장 빠른 성장세를 기록했다.</p>
+    <a href="https://agenticaiinstitute.org/agentic-ai-enterprise-adoption-2026-governance-gap/" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#06 2026년 6월 기업 AI 주요 트렌드: 지금 리더가 알아야 할 것들</h3>
+    <div class="meta-line">2026.06 · Tenfold Blog</div>
+    <p>Tenfold의 2026년 6월 AI 트렌드 보고서는 에이전틱 AI가 실험 단계에서 미션 크리티컬 운영으로 전환됐음을 확인하며, 코드 개발부터 법무·재무·행정에 이르기까지 전 기능 영역으로 확산됐다고 분석했다. 전체 임직원의 52%가 이미 AI 에이전트를 업무에 활용하고 있으며, 97%의 경영진이 지난 1년 내 AI 에이전트를 배포했다고 응답했다. 통신업이 48%로 전 산업 최고 도입률을 기록한 가운데, 소매·CPG와 금융·보험이 47%로 바짝 뒤를 쫓고 있다.</p>
+    <a href="https://www.usetenfold.ai/blog/top-ai-trends-in-june-2026-what-enterprise-leaders-need-to-know-now" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#07 2026 에이전트 AI 트렌드: 생성형 AI 이후, 에이전틱 AI가 기업 업무를 바꾸는 방식</h3>
+    <div class="meta-line">2026 · SK AX</div>
+    <p>SK AX는 에이전틱 AI가 목표 설정부터 계획·실행·피드백까지 전 주기를 자율 처리하는 특성으로 단순 생성형 AI 대비 생산성 향상 폭이 압도적이며, 한 글로벌 컨설팅 펌에서는 생성형 AI 도입 시 30% 향상에 그쳤던 생산성이 에이전틱 AI 도입 후 200%까지 향상됐다고 보고했다. AWS Strands, Microsoft Semantic Kernel, LangGraph 등 주요 프레임워크의 공통 인터페이스 채택이 멀티에이전트 오케스트레이션 시대를 본격 개막했다고 분석했다. 국내 기업들도 에이전틱 AI를 2026년 핵심 AX 전략으로 삼아 조직 구조와 업무 프로세스를 근본적으로 재편하고 있다.</p>
+    <a href="https://www.skax.co.kr/insight/trend/3624" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#08 &quot;이제는 에이전트&quot;… 2026년 &#x27;AI 대전환&#x27; 가속화</h3>
+    <div class="meta-line">2026 · 뉴스CJ 경제인사이드</div>
+    <p>뉴스CJ 경제인사이드는 2026년이 에이전틱 AI 원년으로서 국내 기업들의 AI 대전환이 급격히 가속화되는 해가 됐다고 보도했다. 네이버·카카오·삼성전자·SK 등 주요 기업이 각각의 특화 전략으로 AI 에이전트를 핵심 경쟁력으로 내재화하고 있으며, SK텔레콤은 CEO 직속 AI 보드를 신설하고 CIC 체제를 도입하는 등 조직 구조 자체를 AI 중심으로 개편했다. 아모레퍼시픽은 멀티에이전트 시스템 기반의 &#x27;AI 뷰티 카운슬러&#x27;를, 삼성전자는 코딩 에이전트 &#x27;코드아이&#x27;를 각각 핵심 AX 사례로 제시했다.</p>
+    <a href="https://www.newscj.com/news/articleView.html?idxno=3409834" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#09 에이전틱 AI의 엔터프라이즈 전환점: 2026년 4월이 프로덕션 스케일 도입을 재정의한 방법</h3>
+    <div class="meta-line">2026.04 · FifthRow</div>
+    <p>FifthRow는 2026년 4월을 에이전틱 AI의 &#x27;엔터프라이즈 티핑 포인트&#x27;로 규정하며, 이 시기에 Google Cloud가 Gemini Enterprise Agent Platform을 출시해 AI 에이전트 빌드·오케스트레이션·거버넌스를 통합 지원하는 프로덕션 급 환경을 제공하기 시작했다고 분석했다. 이를 기점으로 기업들이 체계화된 프로덕션 스케일 에이전틱 AI 플랫폼 도입으로 일제히 전환했으며, 옵저버빌리티·이상 탐지·컴플라이언스 도구 내장 플랫폼이 거버넌스 격차를 해소하는 핵심 솔루션으로 부상했다. 이 전환점 이후 체계적 혁신과 프로덕션 스케일 도입이 병행되는 새로운 AI 전환 패러다임이 글로벌 기업 전반에 자리잡고 있다.</p>
+    <a href="https://www.fifthrow.com/blog/agentic-ai-s-enterprise-tipping-point-how-april-2026-redefined-systematic-innovation-and-production-scale-adoption" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#10 Accenture·Databricks, AI 에이전트 및 애플리케이션 엔터프라이즈 대규모 도입 가속화 파트너십 발표</h3>
+    <div class="meta-line">2026 · Accenture Newsroom</div>
+    <p>Accenture와 Databricks는 기업의 AI 애플리케이션 및 에이전트 대규모 도입을 가속화하기 위한 전략적 파트너십을 발표했다. 이 협력은 Databricks의 데이터 인텔리전스 플랫폼과 Accenture의 산업별 AX 컨설팅 역량을 결합해, 기업이 에이전틱 AI를 안전하고 확장 가능한 방식으로 프로덕션에 배포할 수 있도록 종단 간 지원을 제공한다. 글로벌 SI·컨설팅 기업과 AI 데이터 플랫폼 기업의 결합은 에이전틱 AI 전환의 실행 속도를 높이려는 엔터프라이즈 시장의 강한 수요를 반영한다.</p>
+    <a href="https://newsroom.accenture.com/news/2026/accenture-and-databricks-accelerate-enterprise-adoption-of-ai-applications-and-agents-at-scale" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+</div>
+
+<div id="insights" class="tab-content">
+  <div class="insight-grid">
+
+    <div class="insight-card opp">
+      <h4>🟢 기회 (Opportunity)</h4>
+      <ul>
+        <li>AI 에이전트 기반 업무 자동화는 생성형 AI 대비 최대 200% 생산성 향상을 실현하는 것으로 보고되어, 조기 도입 기업이 결정적 경쟁 우위를 확보할 수 있는 창이 열려 있다.</li>
+        <li>멀티에이전트 시스템이 4개월 만에 327% 급증하며 단순 챗봇을 넘어선 복잡한 워크플로우 자동화 시대가 도래해, 슈퍼바이저 에이전트·오케스트레이션 플랫폼 수요가 폭발적으로 성장하고 있다.</li>
+        <li>AI 에이전트가 기업 데이터베이스의 80% 이상을 자율 생성하는 수준까지 진화해, 데이터 플랫폼 현대화와 에이전틱 AI 전략을 연계하는 기업이 인프라와 AI 투자 양측에서 복합 수익을 창출할 수 있다.</li>
+      </ul>
+    </div>
+
+    <div class="insight-card risk">
+      <h4>🔴 리스크 (Risk)</h4>
+      <ul>
+        <li>94%의 기업이 &#x27;AI 스프롤&#x27;을 보안 및 기술 부채의 위험 요인으로 지목해, 중앙화된 거버넌스 없이 에이전트를 무분별하게 확산할 경우 운영 복잡성과 보안 취약점이 구조적으로 누적된다.</li>
+        <li>67%의 경영진이 비승인 AI 도구로 인해 이미 데이터 유출이나 침해를 경험했다고 밝혀, AI 에이전트의 빠른 확산이 기존 보안 통제 체계의 사각지대를 급격히 넓히고 있다.</li>
+        <li>Gartner는 2027년까지 에이전틱 AI 프로젝트의 40% 이상이 취소될 것으로 예측해, 명확한 비즈니스 가치 검증 없이 시작된 프로젝트가 대규모 투자 손실로 이어질 수 있다는 경고가 현실화되고 있다.</li>
+      </ul>
+    </div>
+
+    <div class="insight-card strat">
+      <h4>🔵 전략 (Strategy)</h4>
+      <ul>
+        <li>AI 에이전트 거버넌스 체계(ADLC·컨텍스트 그래프·평가 도구)를 조기에 수립하라 — 거버넌스를 구축한 기업은 AI 프로젝트의 프로덕션 전환 비율이 12배 높으며, 평가 도구 도입 기업은 6배 빠른 전환 속도를 보였다.</li>
+        <li>단일 에이전트에서 멀티에이전트 오케스트레이션 아키텍처로의 전환을 로드맵에 포함하라 — 슈퍼바이저 에이전트 패턴이 전체 도입의 37%를 차지하며 가장 검증된 확장 모델로 부상했고, 공통 프레임워크(AWS Strands·MS Semantic Kernel·LangGraph) 기반의 벤더 중립 설계가 장기 유연성을 보장한다.</li>
+        <li>직원 AI 업스킬링을 에이전트 도입 전략의 핵심 축으로 삼아라 — Google Cloud 보고서는 인재 육성이 AI 에이전트 투자 대비 최대 비즈니스 가치를 이끄는 궁극적 동인임을 강조하며, 기술 도입과 조직 변화 관리를 동시에 추진하지 않으면 54%의 C레벨 경험처럼 조직 분열로 귀결될 수 있다.</li>
+      </ul>
+    </div>
+
+    <div class="insight-card trend">
+      <h4>🟡 트렌드 (Trend)</h4>
+      <ul>
+        <li>AI 에이전트가 &#x27;도구&#x27;에서 &#x27;업무 주체&#x27;로 진화하며, 목표 수립·계획·실행·피드백 전 주기를 자율 수행하는 에이전틱 AI가 2026년 엔터프라이즈 운영 표준으로 자리잡고 있다.</li>
+        <li>멀티클라우드·멀티에이전트 인터페이스 표준화(공통 프레임워크 채택)가 진행되며, 벤더 락인 없이 다수의 AI 에이전트를 통합 관리하는 플랫폼 중립적 아키텍처가 엔터프라이즈 AX 전략의 핵심 설계 원칙으로 부상하고 있다.</li>
+        <li>산업별 특화 에이전트(의료 문헌 분석·예측 정비·뷰티 카운슬링 등) 개발이 가속화되며, 도메인 전문성을 내재화한 버티컬 AI 에이전트가 범용 에이전트 대비 더 높은 ROI와 빠른 스케일링을 실현하는 트렌드가 데이터로 확인되고 있다.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<footer>AX Intelligence Report · Generated 2026-07-08 16:07 · Source coverage: OutSystems, Databricks, Google Cloud, Writer.com, Agentic AI Institute, Tenfold, SK AX, 뉴스CJ 경제인사이드, FifthRow, Accenture</footer>
+
+<script>
+function showTab(id, ev){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  ev.target.classList.add('active');
+}
+</script>
+</body>
+</html>

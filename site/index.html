@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AX 인텔리전스 리포트 게시판</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#F6F1E7;
+  --panel:#FFFCF5;
+  --panel-alt:#F1EADA;
+  --border:#E0D6C0;
+  --gold:#A87C12;
+  --teal:#2B7A82;
+  --text:#241F17;
+  --text-soft:#5C5446;
+  --text-mute:#8C8270;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{background:var(--bg); color:var(--text); font-family:'Inter','Noto Sans KR',sans-serif;}
+body{padding:40px 20px; line-height:1.6;}
+
+.wrap{max-width:920px; margin:0 auto;}
+
+header{margin-bottom:28px; border-bottom:2px solid var(--text); padding-bottom:20px;}
+.eyebrow{font-family:'IBM Plex Mono',monospace; font-size:13.5px; letter-spacing:.12em; color:var(--gold); text-transform:uppercase; margin-bottom:8px;}
+h1{font-family:'Newsreader',serif; font-size:40px; font-weight:600; letter-spacing:-.01em;}
+.meta{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--text-soft); margin-top:10px;}
+
+table{width:100%; border-collapse:collapse; background:#FFFFFF; border:1px solid var(--border); border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(36,31,23,.06);}
+thead th{font-family:'Inter','Noto Sans KR',sans-serif; font-size:14px; font-weight:700; letter-spacing:.03em; color:var(--text); text-align:left; padding:12px 16px; background:var(--panel-alt); border-bottom:1px solid var(--border);}
+tbody td{padding:14px 16px; border-bottom:1px solid var(--border); font-size:15.5px; vertical-align:top;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:#FBF7EC;}
+
+td.num{font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:var(--text-mute); width:48px;}
+td.kw{width:160px;}
+.kw-badge{display:inline-block; font-family:'Inter','Noto Sans KR',sans-serif; font-size:13px; font-weight:600; color:#8F6A0F; border:1px solid var(--gold); border-radius:4px; padding:2px 8px;}
+td.title a{font-family:'Newsreader',serif; font-size:19px; font-weight:600; color:var(--text); text-decoration:none;}
+td.title a:hover{color:var(--teal); text-decoration:underline;}
+td.title .sub{font-size:14px; color:var(--text-soft); margin-top:4px; font-family:'Inter',sans-serif; font-weight:400;}
+td.cnt{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13.5px; color:var(--text-soft); width:70px; text-align:center;}
+td.date{font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:var(--text-mute); width:115px;}
+td.del{width:48px; text-align:center;}
+.del-btn{background:none; border:1px solid transparent; border-radius:6px; color:var(--text-mute); font-size:15px; padding:4px 9px; cursor:pointer; line-height:1;}
+.del-btn:hover{color:#A8392F; border-color:#E3BEB8; background:#F7EBE9;}
+
+.empty{padding:40px; text-align:center; color:var(--text-mute); font-size:15.5px;}
+
+.compose{background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:20px; margin-bottom:28px; box-shadow:0 2px 6px rgba(36,31,23,.06);}
+.compose-title{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15.5px; font-weight:700; letter-spacing:.03em; color:#8F6A0F; margin-bottom:12px;}
+.compose-row{display:flex; gap:10px; flex-wrap:wrap;}
+.compose-row input[type=text]{flex:1; min-width:260px; padding:11px 14px; font-size:15.5px; font-family:'Inter',sans-serif; border:1px solid var(--border); border-radius:6px; background:#fff; color:var(--text); outline:none;}
+.compose-row input[type=text]:focus{border-color:var(--gold);}
+.compose-row select{padding:11px 10px; font-size:14.5px; font-family:'Inter','Noto Sans KR',sans-serif; border:1px solid var(--border); border-radius:6px; background:#fff; color:var(--text-soft); cursor:pointer;}
+.compose-row button{padding:11px 22px; font-size:15.5px; font-weight:600; font-family:'Inter',sans-serif; background:var(--gold); color:#fff; border:none; border-radius:6px; cursor:pointer;}
+.compose-row button:hover{background:#8F6A0F;}
+.compose-row button:disabled{background:var(--text-mute); cursor:not-allowed;}
+.compose-hint{font-size:13.5px; color:var(--text-mute); margin-top:10px;}
+.compose-status{font-family:'Inter','Noto Sans KR',sans-serif; font-size:14px; font-weight:500; margin-top:10px; min-height:20px;}
+.compose-status.running{color:var(--teal);}
+.compose-status.error{color:#A8392F;}
+.compose-status .spin{display:inline-block; animation:spin 1.2s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--text-mute); text-align:center;}
+
+@media (max-width:680px){
+  td.kw, td.cnt{display:none;}
+  h1{font-size:28px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">AX Intelligence Board</div>
+  <h1>AX 인텔리전스 리포트 게시판</h1>
+  <div class="meta">총 3건 · 최근 업데이트: 2026-07-08 16:56</div>
+</header>
+
+<div class="compose">
+  <div class="compose-title">새 리포트 생성</div>
+  <div class="compose-row">
+    <input id="kw" type="text" placeholder="키워드 또는 지시문 입력 — 예: 생성형 AI 도입 / 국내 제조업 AI 전환 사례 위주로 조사해줘" maxlength="200">
+    <select id="days">
+      <option value="7">최근 7일</option>
+      <option value="30" selected>최근 30일</option>
+      <option value="90">최근 90일</option>
+    </select>
+    <select id="articles">
+      <option value="8">기사 8건</option>
+      <option value="10" selected>기사 10건</option>
+      <option value="12">기사 12건</option>
+    </select>
+    <button id="go">리포트 생성</button>
+  </div>
+  <div class="compose-hint">생성에는 보통 3~7분이 걸립니다. 완료되면 자동으로 리포트 페이지가 열립니다.</div>
+  <div id="status" class="compose-status"></div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>키워드</th><th>리포트</th><th>기사</th><th>생성일</th><th></th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="num">3</td>
+      <td class="kw"><span class="kw-badge">클로드</span></td>
+      <td class="title"><a href="posts/20260708-163355.html">클로드(Claude) 엔터프라이즈 AX 전환 동향 브리핑 — 2026년 7월</a><div class="sub">&quot;클로드는 더 이상 범용 챗봇이 아니다&quot; — 산업별 수직 특화 플랫폼·정부 전용 거버넌스·멀티 에이전트 자율 실행 체계를 동시 구축하며 엔터프라이즈 AI 인프라의…</div></td>
+      <td class="cnt">10건</td>
+      <td class="date">2026-07-08 16:33</td>
+      <td class="del"><button class="del-btn" data-id="20260708-163355" title="이 리포트 삭제">✕</button></td>
+    </tr>
+    <tr>
+      <td class="num">2</td>
+      <td class="kw"><span class="kw-badge">AI 반도체 시장 동향, 국내 기업 중심으로</span></td>
+      <td class="title"><a href="posts/20260708-162640.html">AI 반도체 슈퍼사이클 동향 브리핑 — 국내 기업 중심</a><div class="sub">&quot;AI 반도체 슈퍼사이클은 단순 수출 호황이 아니라 한국 산업 구조의 전면적 재편 신호탄이다&quot; — 삼성·SK하이닉스의 HBM4 주도권과 1,350조 원 국가 투자…</div></td>
+      <td class="cnt">10건</td>
+      <td class="date">2026-07-08 16:26</td>
+      <td class="del"><button class="del-btn" data-id="20260708-162640" title="이 리포트 삭제">✕</button></td>
+    </tr>
+    <tr>
+      <td class="num">1</td>
+      <td class="kw"><span class="kw-badge">엔터프라이즈 AI 에이전트</span></td>
+      <td class="title"><a href="posts/20260708-160737.html">엔터프라이즈 AI 에이전트 2026 동향 브리핑</a><div class="sub">&quot;에이전틱 AI는 이미 엔터프라이즈 주류가 됐지만, 거버넌스 없는 확산이 최대 위협이다&quot; — 기업의 96%가 AI 에이전트를 운영하는 동안 중앙화된 거버넌스 체계…</div></td>
+      <td class="cnt">10건</td>
+      <td class="date">2026-07-08 16:07</td>
+      <td class="del"><button class="del-btn" data-id="20260708-160737" title="이 리포트 삭제">✕</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<footer>AX Intelligence Report Board · generated by ax_report.py</footer>
+
+</div>
+
+<script>
+(function(){
+  const kw = document.getElementById('kw');
+  const go = document.getElementById('go');
+  const statusEl = document.getElementById('status');
+
+  function setStatus(msg, cls){
+    statusEl.className = 'compose-status' + (cls ? ' ' + cls : '');
+    statusEl.innerHTML = msg;
+  }
+
+  if (location.protocol === 'file:') {
+    go.disabled = true;
+    kw.disabled = true;
+    document.querySelectorAll('.del-btn').forEach(function(b){ b.style.display = 'none'; });
+    setStatus('리포트 생성 기능은 서버 모드에서만 동작합니다. AX리포트_시작.bat 을 더블클릭하거나 터미널에서 python ax_report.py --serve 를 실행하세요.', 'error');
+    return;
+  }
+
+  document.querySelector('tbody').addEventListener('click', async function(e){
+    const btn = e.target.closest('.del-btn');
+    if (!btn) return;
+    const row = btn.closest('tr');
+    const title = row.querySelector('td.title a') ? row.querySelector('td.title a').textContent : btn.dataset.id;
+    if (!confirm('이 리포트를 삭제할까요?\n\n' + title + '\n\n삭제하면 되돌릴 수 없습니다.')) return;
+    btn.disabled = true;
+    let r, j;
+    try {
+      r = await fetch('/delete', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({id: btn.dataset.id})
+      });
+      j = await r.json();
+    } catch (err) {
+      setStatus('서버에 연결할 수 없습니다. 서버가 실행 중인지 확인하세요.', 'error');
+      btn.disabled = false;
+      return;
+    }
+    if (!r.ok) { setStatus(j.error || '삭제 실패', 'error'); btn.disabled = false; return; }
+    location.reload();
+  });
+
+  async function poll(){
+    let s;
+    try {
+      s = await (await fetch('/status')).json();
+    } catch (e) {
+      setStatus('서버와 연결이 끊겼습니다. 서버 창(AX리포트_시작.bat)이 실행 중인지 확인하세요.', 'error');
+      go.disabled = false;
+      return;
+    }
+    if (s.running) {
+      go.disabled = true;
+      const m = Math.floor(s.elapsed / 60), sec = s.elapsed % 60;
+      setStatus('<span class="spin">◐</span> "' + s.keyword + '" ' + s.stage + '… ' +
+                (m ? m + '분 ' : '') + sec + '초 경과 (보통 3~7분 소요)', 'running');
+      setTimeout(poll, 3000);
+      return;
+    }
+    go.disabled = false;
+    if (s.done_id && sessionStorage.getItem('ax-waiting') === '1') {
+      sessionStorage.removeItem('ax-waiting');
+      setStatus('완료! 리포트 페이지로 이동합니다…', 'running');
+      location.href = 'posts/' + s.done_id + '.html';
+      return;
+    }
+    if (s.error && sessionStorage.getItem('ax-waiting') === '1') {
+      sessionStorage.removeItem('ax-waiting');
+      setStatus('오류: ' + s.error, 'error');
+    }
+  }
+
+  async function submit(){
+    const keyword = kw.value.trim();
+    if (!keyword) { setStatus('키워드나 지시문을 입력하세요.', 'error'); kw.focus(); return; }
+    go.disabled = true;
+    setStatus('요청 전송 중…', 'running');
+    let r, j;
+    try {
+      r = await fetch('/generate', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          keyword: keyword,
+          days: document.getElementById('days').value,
+          articles: document.getElementById('articles').value
+        })
+      });
+      j = await r.json();
+    } catch (e) {
+      setStatus('서버에 연결할 수 없습니다. 서버가 실행 중인지 확인하세요.', 'error');
+      go.disabled = false;
+      return;
+    }
+    if (!r.ok) { setStatus(j.error || '요청 실패', 'error'); go.disabled = false; return; }
+    sessionStorage.setItem('ax-waiting', '1');
+    poll();
+  }
+
+  go.addEventListener('click', submit);
+  kw.addEventListener('keydown', function(e){ if (e.key === 'Enter') submit(); });
+  poll();  // 페이지 로드 시 진행 중인 작업이 있으면 이어서 표시
+})();
+</script>
+</body>
+</html>

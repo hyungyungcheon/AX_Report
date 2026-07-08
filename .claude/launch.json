@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ax-report-serve",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["ax_report.py", "--serve", "--port", "8940", "--no-open"],
+      "port": 8940
+    }
+  ]
+}

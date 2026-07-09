@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>한국 증시 폭락 동향 브리핑: AI·반도체 집중 리스크와 엔터프라이즈 AX 전환 시사점 — AX 인텔리전스 리포트</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#F6F1E7;
+  --panel:#FFFCF5;
+  --panel-alt:#F1EADA;
+  --border:#E0D6C0;
+  --gold:#A87C12;
+  --teal:#2B7A82;
+  --green:#3F7A52;
+  --red:#A8392F;
+  --blue:#3F5499;
+  --text:#241F17;
+  --text-soft:#5C5446;
+  --text-mute:#8C8270;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{background:var(--bg); color:var(--text); font-family:'Inter','Noto Sans KR',sans-serif;}
+body{padding:40px 20px; line-height:1.6;}
+
+.wrap{max-width:920px; margin:0 auto;}
+
+.back-link{display:inline-block; font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--teal); text-decoration:none; margin-bottom:18px; padding:6px 12px; border:1px solid var(--teal); border-radius:6px; background:#fff;}
+.back-link:hover{background:var(--teal); color:#fff;}
+
+header{margin-bottom:28px; border-bottom:2px solid var(--text); padding-bottom:20px;}
+.eyebrow{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:8px;}
+h1{font-family:'Newsreader',serif; font-size:40px; font-weight:600; letter-spacing:-.01em;}
+.meta{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15px; font-weight:600; color:var(--text-soft); margin-top:10px;}
+
+.scorecards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:28px 0;}
+.score{background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:16px; box-shadow:0 2px 6px rgba(36,31,23,.06);}
+.score .label{font-family:'Inter','Noto Sans KR',sans-serif; font-size:14px; font-weight:700; color:var(--text-soft); letter-spacing:.03em;}
+.score .val{font-family:'Newsreader',serif; font-size:32px; font-weight:600; color:var(--gold); margin-top:4px;}
+.score .desc{font-size:13.5px; color:var(--text-soft); margin-top:6px;}
+
+.key-msg{background:var(--panel-alt); border-left:4px solid var(--gold); padding:16px 20px; margin:24px 0; font-family:'Newsreader',serif; font-size:18.5px; font-style:italic;}
+
+.tabs{display:flex; gap:8px; border-bottom:2px solid var(--border); margin:34px 0 0;}
+.tab-btn{font-family:'Inter','Noto Sans KR',sans-serif; font-size:17px; font-weight:600; padding:12px 24px; background:none; border:none; cursor:pointer; color:var(--text-mute); border-bottom:3px solid transparent; margin-bottom:-2px; border-radius:6px 6px 0 0; transition:color .15s, background .15s;}
+.tab-btn:hover{color:var(--text); background:var(--panel-alt);}
+.tab-btn.active{color:var(--gold); border-bottom-color:var(--gold); font-weight:700; background:var(--panel);}
+
+.tab-content{display:none; padding-top:24px;}
+.tab-content.active{display:block;}
+
+.article{background:#FFFFFF; border:1px solid var(--border); border-radius:8px; padding:18px 20px; margin-bottom:14px;}
+.article h3{font-family:'Newsreader',serif; font-size:20px; font-weight:600; margin-bottom:6px;}
+.article .meta-line{font-family:'Inter','Noto Sans KR',sans-serif; font-size:13px; font-weight:500; color:var(--text-mute); margin-bottom:10px;}
+.article p{font-size:15.5px; color:var(--text-soft);}
+.article a{color:var(--teal); text-decoration:none; font-size:13.5px; font-weight:600; font-family:'Inter','Noto Sans KR',sans-serif;}
+.article a:hover{text-decoration:underline;}
+
+.insight-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.insight-card{border-radius:8px; padding:18px 20px; border:1px solid var(--border); box-shadow:0 2px 6px rgba(36,31,23,.05);}
+.insight-card h4{font-family:'Inter','Noto Sans KR',sans-serif; font-size:15.5px; font-weight:700; letter-spacing:.02em; margin-bottom:10px;}
+.insight-card ul{padding-left:18px; font-size:15px; color:var(--text-soft);}
+.insight-card li{margin-bottom:6px;}
+.opp{background:#EEF5EC; border-color:#BFD9BB;} .opp h4{color:var(--green);}
+.risk{background:#F7EBE9; border-color:#E3BEB8;} .risk h4{color:var(--red);}
+.strat{background:#EAF0F8; border-color:#BFCFE8;} .strat h4{color:var(--blue);}
+.trend{background:#FAF2DE; border-color:#E6D29C;} .trend h4{color:var(--gold);}
+
+footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--text-mute); text-align:center;}
+
+@media (max-width:680px){
+  .scorecards{grid-template-columns:1fr;}
+  .insight-grid{grid-template-columns:1fr;}
+  h1{font-size:28px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back-link" href="../index.html">← 목록으로</a>
+
+<header>
+  <div class="eyebrow">AX Intelligence Report · Keyword: 한국 증시 폭락</div>
+  <h1>한국 증시 폭락 동향 브리핑: AI·반도체 집중 리스크와 엔터프라이즈 AX 전환 시사점</h1>
+  <div class="meta">수집 기준일: 2026-07-09 08:30 · 수집 기사: 10건 · 분석 관점: 엔터프라이즈 AX 전환</div>
+</header>
+
+<div class="scorecards">
+  <div class="score"><div class="label">전환 속도</div><div class="val">7.5 / 10</div><div class="desc">코스피 2026년 연간 169% 급등 후 10% 단일일 폭락은 AI 전환이 시장 흡수 속도를 초과한 수준으로 진행됐음을 방증한다.</div></div>
+  <div class="score"><div class="label">산업 파급력</div><div class="val">8.5 / 10</div><div class="desc">한국 HBM·메모리 반도체 급락이 글로벌 AI 데이터센터 공급망 전반에 연쇄 충격을 주며 전 세계 AI 인프라 투자 사이클과 직결된 파급력을 확인했다.</div></div>
+  <div class="score"><div class="label">도입 성숙도</div><div class="val">5.0 / 10</div><div class="desc">AI 수요 실체는 견조하나 레버리지 투자(29조 원, 전년 대비 +71%)와 두 종목 집중으로 인한 시장 불안정성은 AI 전환의 제도·구조적 성숙도가 미완성임을 나타낸다.</div></div>
+</div>
+
+<div class="key-msg">&quot;한국 증시 폭락은 AI 수요의 붕괴가 아닌 레버리지·집중 리스크의 청산&quot; — 기업들은 단기 시장 변동성에 흔들리지 않고 HBM 장기공급계약과 AI 인프라 CAPEX 사이클을 근거로 AX 전환 로드맵을 장기 전략으로 재정립해야 한다.</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('articles', event)">기사 요약</button>
+  <button class="tab-btn" onclick="showTab('insights', event)">AX 인사이트</button>
+</div>
+
+<div id="articles" class="tab-content active">
+  <div class="article">
+    <h3>#01 미-이란 전쟁 충격으로 한국 증시 역대 최대 하락 기록</h3>
+    <div class="meta-line">2026.03.04 · Al Jazeera</div>
+    <p>미국-이스라엘의 이란 전쟁 여파로 코스피가 역대 최대인 12.06% 폭락하며 9·11 테러 이후 최대 단일일 낙폭을 갱신하고 이틀 만에 약 2,700억 달러의 시가총액이 증발했다. 삼성전자(-11.7%)·SK하이닉스(-9.6%) 등 반도체 대형주가 급락을 주도하며 AI 반도체 낙관론이 지정학적 충격에 얼마나 취약한지를 드러냈다. 중동 에너지 의존도 70%에 달하는 한국 경제의 구조적 취약성이 AI 전환 공급망 리스크와 겹쳐 부각됐다.</p>
+    <a href="https://www.aljazeera.com/economy/2026/3/4/south-koreas-stock-market-in-meltdown-amid-us-iran-war" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#02 코스피 이틀 만에 18% 폭락, 2008년 이후 최악 주간 낙폭</h3>
+    <div class="meta-line">2026.03.04 · CNBC</div>
+    <p>한국 증시가 이틀 만에 18% 이상 폭락하며 2008년 금융위기 이후 최악의 주간 성적을 기록했다. 같은 해 초 40% 이상 급등했던 코스피가 지정학적 리스크 앞에 극도로 취약한 모습을 드러내며 AI 반도체 낙관론의 한계를 노출했다. 이 폭락은 AI 수요 붕괴가 아닌 에너지 안보 충격에 따른 투자심리 위축으로 분석돼 AX 전환의 외부 리스크 관리 중요성을 각인시켰다.</p>
+    <a href="https://www.cnbc.com/2026/03/04/south-korea-stocks-kospi.html" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#03 한국 증시, AI 반도체 매도세에 서킷브레이커 발동</h3>
+    <div class="meta-line">2026.06.08 · Bloomberg</div>
+    <p>미국 금리 우려와 글로벌 반도체 급락이 겹치며 코스피·코스닥 모두 서킷브레이커가 발동됐다. 이는 2026년 두 번째이자 거래소 역사상 열두 번째에 해당하는 희귀한 사태로, 기술주 집중 구조에서 수급 충격이 얼마나 빠르게 증폭되는지를 재확인시켰다. AI 인프라 투자 붐의 구조적 집중 리스크를 경고하는 선제적 신호로 평가된다.</p>
+    <a href="https://www.bloomberg.com/news/articles/2026-06-08/korean-stocks-tumble-as-investors-rush-to-offload-tech-shares" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#04 &#x27;검은 화요일&#x27; 코스피 10% 폭락, 외국인 5.79조 원 순매도</h3>
+    <div class="meta-line">2026.06.23 · Bloomberg</div>
+    <p>코스피가 9.99% 폭락하며 910.71포인트 하락해 8,203.84에 마감했고, SK하이닉스(-12.5%)·삼성전자(-12.3%)가 2008년 이후 최대 낙폭을 기록했다. 외국인 투자자들이 하루 만에 5.79조 원을 순매도하며 수급 충격을 증폭시켰다. 레버리지 포지션(29조 원) 청산이 반도체 매도세와 동시에 겹치며 단기 폭락을 가속화한 구조적 요인이 확인됐다.</p>
+    <a href="https://www.bloomberg.com/news/articles/2026-06-23/korean-stocks-fall-more-than-4-from-record-high-on-tech-selloff" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#05 AI 매도세에 월스트리트 휘청, 코스피 10% 폭락으로 글로벌 파장</h3>
+    <div class="meta-line">2026.06.23 · CNN Business</div>
+    <p>AI 인프라 구축 붐의 지속 가능성에 대한 의구심이 한국 반도체 주식 급매도를 촉발하고 글로벌 시장으로 파장이 확산됐다. 그러나 폭락 48시간 이내 마이크론이 역대 최대 실적을 발표하며 HBM 실수요는 여전히 견조함을 증명했다. 이는 주가 급락이 AI 수요 붕괴가 아닌 시장 구조적 문제임을 재확인시켜 주며 AX 전환 전략에 단기 노이즈를 배제하는 시각이 필요함을 시사했다.</p>
+    <a href="https://www.cnn.com/2026/06/23/business/stock-market-kospi-dow-nasdaq-ai" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#06 &#x27;검은 화요일&#x27; 코스피 폭락 원인: 레버리지와 반도체 집중의 복합 작용</h3>
+    <div class="meta-line">2026.06.23 · YTN</div>
+    <p>코스피 10% 폭락의 진짜 원인은 빚투(레버리지 투자) 급증과 반도체 집중 구조의 복합 작용으로, 기업 실적 악화가 아닌 수급 충격의 성격이 강하다. 삼성전자·SK하이닉스 두 종목이 코스피 시가총액의 50%와 2026년 상승분의 70%를 차지하는 구조가 폭락을 증폭시켰다. 빚투 규모는 29조 원으로 전년 말 대비 71% 급증한 상태였으며, 이는 AI 테마 단일 쏠림의 구조적 위험성을 상징한다.</p>
+    <a href="https://www.ytn.co.kr/_ln/0102_202606231921468037" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#07 코스피 하루 새 910포인트 폭락, 반도체 반등 가능할까</h3>
+    <div class="meta-line">2026.06.23 · MBC 뉴스</div>
+    <p>코스피가 하루 새 910포인트 폭락하며 역대 최대 하락폭을 기록한 가운데 반도체 반등 가능성에 시장의 시선이 집중됐다. 삼성전자가 시총 1위 자리를 내주는 이례적 상황이 벌어지며 AI 고점 신호 논쟁이 촉발됐다. 전문가들은 AI CAPEX 투자 사이클 자체는 견조하다며 펀더멘털 훼손 여부가 핵심 판단 기준이라고 강조했다.</p>
+    <a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6832331_37004.html" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#08 국민연금 리밸런싱 55조 원 &#x27;매도 폭탄&#x27; 우려, 시장 심리 위축</h3>
+    <div class="meta-line">2026.07.01 · 파이낸셜뉴스</div>
+    <p>국민연금의 국내 주식 보유 한도 조정 재개로 최대 55조 원 규모의 매도 물량이 나올 수 있다는 우려가 확산되며 코스피에 추가 하락 압력이 가해졌다. 전문가들은 매도가 분산될 가능성이 높아 &#x27;폭탄설&#x27;은 과장됐다고 평가하면서도 환율 상승과 외국인 이탈이 겹치는 복합 악재를 경계했다. 이 사태는 연기금의 AI 테마 집중 포트폴리오 리밸런싱이 시장 수급에 미치는 구조적 영향을 보여주며 기관 AX 투자 거버넌스의 중요성을 부각시켰다.</p>
+    <a href="https://www.fnnews.com/news/202607011537017319" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#09 AI 우려로 한국 주식 6% 추가 하락, 반도체 타격 지속</h3>
+    <div class="meta-line">2026.07.02 · Bloomberg</div>
+    <p>6월 폭락 이후에도 AI 관련 불확실성이 지속되며 한국 주식이 7월 초 6% 추가 하락했고, 코스피는 반등을 시도했으나 AI 투자 사이클의 지속성에 대한 의구심이 여전히 시장을 억눌렀다. 삼성전자 잠정실적과 SK하이닉스 HBM 장기계약 동향이 시장 회복의 핵심 변수로 주목받고 있다. AI 반도체 공급망의 가시성이 확보된 기업과 그렇지 않은 기업 간의 선별(옥석 가리기)이 본격화되는 국면으로 진입했다.</p>
+    <a href="https://www.bloomberg.com/news/articles/2026-07-02/south-korean-stocks-tumble-6-as-ai-jitters-hurt-chipmakers" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+  <div class="article">
+    <h3>#10 코스피, 공포심리 딛고 반등 모색…반도체 실적이 분수령</h3>
+    <div class="meta-line">2026.07.06 · 뉴스핌</div>
+    <p>코스피가 연속 하락 이후 공포 정점 통과 인식 속에서 반등을 시도하며 AI 반도체 실적 발표에 시장의 관심이 집중됐다. AI 인프라 투자(CAPEX) 사이클이 하반기 증시를 지탱하는 핵심 상수로, HBM 장기 공급계약 확대 여부가 회복의 관건으로 분석된다. 전문가들은 펀더멘털이 훼손되지 않는 한 하락장은 없다며 급락 시 AI 인프라 관련 우량주 매수를 권고했다.</p>
+    <a href="https://www.newspim.com/news/view/20260706000142" target="_blank" rel="noopener">원문 ↗</a>
+  </div>
+</div>
+
+<div id="insights" class="tab-content">
+  <div class="insight-grid">
+
+    <div class="insight-card opp">
+      <h4>🟢 기회 (Opportunity)</h4>
+      <ul>
+        <li>AI 인프라 CAPEX 사이클은 폭락 이후에도 견조해 HBM 장기공급계약(LTA) 확대 등 AI 공급망 파트너십 투자의 합리적 진입 시점이 형성됐다.</li>
+        <li>증시 조정으로 AI 관련 기업들의 밸류에이션이 재조정되며, 기업들이 AI 전환 파트너·솔루션 도입 협상에서 유리한 조건을 확보할 수 있는 매수 기회의 창이 열렸다.</li>
+        <li>정부의 AI 반도체·데이터센터·피지컬 AI 통합 전략산업에 100조 원 이상의 국가 투자가 집행되며, AX 전환 인프라 구축 수혜 기업과의 협업 기회가 지속 확대되고 있다.</li>
+      </ul>
+    </div>
+
+    <div class="insight-card risk">
+      <h4>🔴 리스크 (Risk)</h4>
+      <ul>
+        <li>삼성전자·SK하이닉스 두 종목에 코스피 시총 50%가 집중된 구조는 AI 공급망 단일 의존 리스크를 상징하며, 기업 AX 로드맵의 부품·인프라 조달 안정성을 위협한다.</li>
+        <li>미-이란 전쟁 등 지정학적 충격이 에너지 안보와 반도체 공급망에 동시 타격을 주며, AI 전환에 필요한 핵심 부품·에너지 조달 리스크가 언제든 재현될 수 있다.</li>
+        <li>HBM 계약 가격 하락 압력과 AI 자본지출 위축 가능성이 반도체 의존 기업들의 AX 투자 재원을 잠식하고 전환 모멘텀을 약화시킬 수 있다.</li>
+      </ul>
+    </div>
+
+    <div class="insight-card strat">
+      <h4>🔵 전략 (Strategy)</h4>
+      <ul>
+        <li>AI 전환 투자는 단기 주가 변동성에 흔들리지 않고 장기 공급계약(LTA)과 실적 가시성이 확보된 AI 인프라 파트너십을 우선 확보하는 방향으로 전략을 수립해야 한다.</li>
+        <li>반도체·AI 단일 공급망 의존에서 벗어나 AI 소프트웨어, 데이터센터 운영, AIaaS(AI-as-a-Service) 등 다양한 AX 전환 경로를 병행 운영해 집중 리스크를 분산해야 한다.</li>
+        <li>레버리지 기반 단기 AI 투자를 지양하고 AI ROI 측정 체계를 내재화해 지속 가능한 AX 예산 집행 거버넌스와 투자 심의 프로세스를 조직 내에 정착시켜야 한다.</li>
+      </ul>
+    </div>
+
+    <div class="insight-card trend">
+      <h4>🟡 트렌드 (Trend)</h4>
+      <ul>
+        <li>한국이 HBM·AI 메모리 공급망의 글로벌 핵심 노드로 부상하면서 코스피 변동성이 전 세계 AI 인프라 투자 사이클의 선행 지표로 기능하는 구조적 전환이 진행 중이다.</li>
+        <li>개인 레버리지 투자와 AI 테마 쏠림이 결합된 &#x27;유동성 주도 AI 랠리&#x27;의 조정 사이클이 반복되며, 단기 주가 변동성이 기업 AX 전환 의사결정의 노이즈로 구조화되고 있다.</li>
+        <li>국민연금 등 기관투자자의 AI 테마 집중 포트폴리오 리밸런싱 수요가 증가하며, 중장기 AX 투자 자금 배분 구조에 분산·다변화 압력이 가속화되고 있다.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<footer>AX Intelligence Report · Generated 2026-07-09 08:30 · Source coverage: Al Jazeera, CNBC, Bloomberg, CNN Business, YTN, MBC뉴스, 파이낸셜뉴스, 뉴스핌</footer>
+
+<script>
+function showTab(id, ev){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  ev.target.classList.add('active');
+}
+</script>
+</body>
+</html>

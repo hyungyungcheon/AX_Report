@@ -139,7 +139,16 @@ def generate_report(keyword: str, days: int, n_articles: int, model: str | None)
         raise ReportError(f"시간 초과({CLAUDE_TIMEOUT}초). 잠시 후 다시 시도해 보세요.")
     elapsed = time.time() - t0
     if proc.returncode != 0:
-        raise ReportError(f"claude 실행 실패 (exit {proc.returncode}): {proc.stderr[:500]}")
+        try:
+            detail = str(json.loads(proc.stdout).get("result", ""))[:500]
+        except (json.JSONDecodeError, AttributeError):
+            detail = (proc.stderr or proc.stdout or "")[:500]
+        if "401" in detail or "authenticat" in detail.lower() or "/login" in detail.lower():
+            raise ReportError(
+                "Claude 로그인이 만료됐습니다. 터미널에서 claude 를 실행해 로그인(/login)한 뒤 "
+                f"다시 시도하세요. (원본 오류: {detail})"
+            )
+        raise ReportError(f"claude 실행 실패 (exit {proc.returncode}): {detail}")
 
     try:
         envelope = json.loads(proc.stdout)
@@ -422,8 +431,9 @@ def serve(port: int, open_browser: bool, model: str | None):
 # ---------------------------------------------------------------- CLI
 
 def main():
-    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
-        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    for stream in (sys.stdout, sys.stderr):
+        if stream.encoding and stream.encoding.lower() != "utf-8":
+            stream.reconfigure(encoding="utf-8", errors="replace")
 
     ap = argparse.ArgumentParser(description="AX 인텔리전스 리포트 생성기")
     ap.add_argument("keyword", nargs="?", help="검색할 키워드 또는 지시문")
